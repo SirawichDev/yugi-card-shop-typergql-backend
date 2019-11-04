@@ -1,7 +1,7 @@
 language: nodejs
 
 before_script:
-  - yarn
+  - npm install
 
 script:
-  - yarn run test
+  - npx test
