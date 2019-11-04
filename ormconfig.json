@@ -1,0 +1,13 @@
+ {
+     "type": "postgres",
+     "name": "default",
+     "host": "localhost",
+     "port": 4231,
+     "username": "xoxoxo",
+     "password": "xoxoxo",
+     "database": "yugi-collection",
+     "synchronize": true,
+     "logging": true,
+     "entities": ["src/entity/*.*"]
+
+ }
