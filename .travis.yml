@@ -1,0 +1,12 @@
+language: nodejs
+
+before_script:
+  - npm intall
+  - npm run build
+
+script:
+  - npm run test
+
+after_success:
+  - npm run typedoc
+  - npm pack

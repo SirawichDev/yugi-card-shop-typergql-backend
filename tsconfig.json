@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "lib": ["dom", "es6", "es2017", "esnext.asynciterable"],
+
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "outDir": "./dist",
+    "sourceMap": true,
+    "composite": false,
+
+    "strictNullChecks": true,
+    "baseUrl": ".",
+    "rootDir": "src",
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["./src/**/*.tsx", "./src/**/*.ts"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}
