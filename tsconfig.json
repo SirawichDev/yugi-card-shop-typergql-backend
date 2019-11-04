@@ -11,7 +11,7 @@
     "outDir": "./dist",
     "sourceMap": true,
     "composite": false,
-
+    "emitDecoratorMetadata": true,
     "strictNullChecks": true,
     "baseUrl": ".",
     "rootDir": "src",
