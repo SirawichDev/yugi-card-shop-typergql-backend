@@ -1,12 +1,7 @@
 language: nodejs
 
 before_script:
-  - npm intall
-  - npm run build
+  - yarn
 
 script:
-  - npm run test
-
-after_success:
-  - npm run typedoc
-  - npm pack
+  - yarn run test
