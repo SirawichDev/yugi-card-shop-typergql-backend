@@ -4,8 +4,10 @@
   "description": "crate tugi card store eiei",
   "main": "index.js",
   "scripts": {
+    "setup": "npm install",
     "start": "nodemon --exec ts-node src/index.ts",
     "build": "tsc",
+    "dummy-test": "npx jest",
     "build-watch": "tsc --watch"
   },
   "repository": {
