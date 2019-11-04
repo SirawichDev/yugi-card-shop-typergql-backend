@@ -1,19 +1,15 @@
 import 'reflect-metadata'
 import { ApolloServer } from 'apollo-server-express'
 import * as Express from 'express'
-import { buildSchema, Resolver, Query } from 'type-graphql'
+import { buildSchema } from 'type-graphql'
+import { createConnection } from 'typeorm'
 
-@Resolver()
-class YugiCardResolver {
-    // private yugiCardCollection: Yugi[] = [];
-    @Query(() => String, { name: 'sirawich'})
-    async yugi() {
-        return "Welcome Yugi"
-    }
-}
+import { RegisterResolver } from './modules/user/Register'
+
 const main = async () => {
+    await createConnection()
     const schema = await buildSchema({
-        resolvers: [YugiCardResolver]
+        resolvers: [RegisterResolver]
     })
     const apolloServer = new ApolloServer({ schema });
 
