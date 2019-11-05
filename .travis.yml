@@ -4,9 +4,13 @@ node_js:
   - '10'
   - '8'
 
-before_script:
+install:
   - npm run setup
   - npm run build
 
+cache:
+  directories:
+    - node_modules
+    
 script:
   - npm run dummy-test
