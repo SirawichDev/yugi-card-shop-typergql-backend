@@ -5,12 +5,12 @@ node_js:
   - '8'
 
 install:
-  - npm run setup
-  - npm run build
+  - npm run install
+  - tsc 
 
 cache:
   directories:
     - node_modules
-    
+
 script:
   - npm run dummy-test
