@@ -2,11 +2,13 @@
   "name": "yugi-card-shop-typergql-backend",
   "version": "1.0.0",
   "description": "crate tugi card store eiei",
-  "main": "index.js",
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.js",
   "scripts": {
     "setup": "npm install",
     "start": "nodemon --exec ts-node src/index.ts",
     "build": "tsc",
+    "pretest": "npm run build",
     "dummy-test": "npx jest",
     "build-watch": "tsc --watch"
   },
