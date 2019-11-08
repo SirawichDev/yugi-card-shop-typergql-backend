@@ -2,12 +2,16 @@
   "name": "yugi-card-shop-typergql-backend",
   "version": "1.0.0",
   "description": "crate tugi card store eiei",
-  "main": "index.js",
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.js",
   "scripts": {
     "setup": "npm install",
-    "start": "nodemon --exec ts-node src/index.ts",
+    "start": "ts-node-dev --respawn src/index.ts",
     "build": "tsc",
-    "dummy-test": "npx jest",
+    "test": "cross-env NODE_ENV=test jest",
+    "ci:test": "cross-env NODE_ENV=test jest --ci --runInBand --detectOpenHandles --forceExit",
+    "test:cover": "jest --coverage",
+    "prebuild": "rimraf ./dist",
     "build-watch": "tsc --watch"
   },
   "repository": {
@@ -33,6 +37,11 @@
     "typedi": "^0.8.0",
     "typeorm": "^0.2.20"
   },
+  "jest": {
+    "transform": {
+      ".*": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    }
+  },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
     "@types/express": "^4.17.2",
@@ -42,6 +51,7 @@
     "nodemon": "^1.19.4",
     "ts-jest": "^24.1.0",
     "ts-node": "^8.4.1",
+    "ts-node-dev": "^1.0.0-pre.44",
     "typescript": "^3.6.4"
   }
 }
