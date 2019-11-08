@@ -8,8 +8,9 @@
     "setup": "npm install",
     "start": "nodemon --exec ts-node src/index.ts",
     "build": "tsc",
-    "pretest": "npm run build",
-    "dummy-test": "npx jest",
+    "test": "jest",
+    "test:cover": "jest --coverage",
+    "prebuild": "rimraf ./dist",
     "build-watch": "tsc --watch"
   },
   "repository": {
@@ -35,6 +36,10 @@
     "typedi": "^0.8.0",
     "typeorm": "^0.2.20"
   },
+  "jest": {
+    "transform": {
+      ".*": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
     "@types/express": "^4.17.2",
