@@ -16,8 +16,10 @@
     "baseUrl": ".",
     "rootDir": "src",
     "strictFunctionTypes": true,
+    "esModuleInterop": true,
     "noImplicitThis": true,
     "noUnusedLocals": true,
+    "allowSyntheticDefaultImports": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true
