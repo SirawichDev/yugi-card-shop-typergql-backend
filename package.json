@@ -8,7 +8,7 @@
     "setup": "npm install",
     "start": "ts-node-dev --respawn src/index.ts",
     "build": "tsc",
-    "test": "cross-env NODE_ENV=test jest",
+    "test": "jest",
     "ci:test": "cross-env NODE_ENV=test jest --ci --runInBand --detectOpenHandles --forceExit",
     "test:cover": "jest --coverage",
     "prebuild": "rimraf ./dist",
