@@ -9,6 +9,8 @@ matrix:
 install:
   - npm uninstall typescript --no-save
   - npm install
+  - npm i -g yarn
+  - yarn
 
 script:
   - "npm run test"
