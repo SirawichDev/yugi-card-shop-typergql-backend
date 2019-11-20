@@ -9,11 +9,12 @@ import session from 'express-session'
 import connectRedis from 'connect-redis'
 import { redis } from './redis'
 import { LoginResolver } from './modules/user/Login'
+import { UserDataResolver } from './modules/user/User_data'
 
 const main = async () => {
     await createConnection()
     const schema = await buildSchema({
-        resolvers: [RegisterResolver,LoginResolver]
+        resolvers: [UserDataResolver, RegisterResolver, LoginResolver]
     })
     const apolloServer = new ApolloServer({
         schema,
