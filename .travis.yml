@@ -7,13 +7,11 @@ matrix:
   fast_finish: true
 
 install:
-  - npm uninstall typescript --no-save
-  - npm install
   - npm i -g yarn
   - yarn
 
 script:
-  - "npm run test"
+  - "yarn run test"
 
 cache:
   directories:
