@@ -4,7 +4,6 @@ import bcrypt from 'bcryptjs'
 
 import { User } from '../../entity/User'
 import { RegisterParams } from './register/RegisterParams';
-
 @Resolver()
 export class RegisterResolver {
     @Query(() => String)
