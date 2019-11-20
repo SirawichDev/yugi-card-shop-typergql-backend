@@ -23,6 +23,10 @@ export class LoginResolver {
             return "Invalid Password or Email"
         }
 
+        if(!user.isEmailConfirmed){
+            return null
+        }
+
         ctx.req.session!.userId = user.id;
 
         return user;
