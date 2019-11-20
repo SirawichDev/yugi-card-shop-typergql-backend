@@ -25,10 +25,13 @@ export class User extends BaseEntity {
     email: string;
 
     @Field()
-    showList(@Root() parent:User): string{
+    showList(@Root() parent: User): string {
         return `your name is ${parent.firstName} and your deck is ${parent.deckName}`
     }
 
     @Column()
     password: string;
+
+    @Column("bool", { default: false })
+    isEmailConfirmed: boolean;
 }
