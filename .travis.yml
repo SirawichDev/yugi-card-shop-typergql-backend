@@ -1,23 +1,17 @@
 language: node_js
 
 node_js:
-  - 'node'
-  - '10'
-
-env:
-  - workerCount=3 timeout=600000
+  - lts/*
 
 matrix:
   fast_finish: true
 
-branches:
-  only:
-  - master
-  - /^release-.*/
-
 install:
   - npm uninstall typescript --no-save
   - npm install
+
+script:
+  - "npm run test"
 
 cache:
   directories:
