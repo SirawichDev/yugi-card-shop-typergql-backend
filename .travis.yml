@@ -1,12 +1,22 @@
-language: nodejs
+language: node_js
 
-before_script:
-  - npm intall
-  - npm run build
+node_js:
+  - lts/*
+
+matrix:
+  fast_finish: true
+
+install:
+  - npm i -g yarn
+  - npm i jest
+  - yarn
 
 script:
-  - npm run test
+  - "yarn run test"
 
-after_success:
-  - npm run typedoc
-  - npm pack
+cache:
+  directories:
+    - node_modules
+
+git:
+  depth: 1

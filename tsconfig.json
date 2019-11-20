@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+      "experimentalDecorators": true,
     "module": "commonjs",
     "target": "es6",
     "lib": ["dom", "es6", "es2017", "esnext.asynciterable"],
@@ -7,16 +8,18 @@
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
-    "outDir": "./dist",
+    "outDir": "./build",
     "sourceMap": true,
     "composite": false,
-
+    "emitDecoratorMetadata": true,
     "strictNullChecks": true,
     "baseUrl": ".",
     "rootDir": "src",
     "strictFunctionTypes": true,
+    "esModuleInterop": true,
     "noImplicitThis": true,
     "noUnusedLocals": true,
+    "allowSyntheticDefaultImports": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true
