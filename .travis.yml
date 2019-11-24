@@ -3,13 +3,24 @@ language: node_js
 node_js:
   - lts/*
 
+postgres:
+  database: yugi-collection-test
+  username: postgres
+  password: postgres
+
+before_script:
+  - "psql -c 'create database  yugi-collection-test;' -U postgres"
+  
 matrix:
   fast_finish: true
-
+  
 install:
   - npm i -g yarn
   - npm i jest
   - yarn
+
+services:
+  - postgresql
 
 script:
   - "yarn run test"
