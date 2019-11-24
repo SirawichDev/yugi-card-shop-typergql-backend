@@ -8,16 +8,25 @@ postgres:
   database: yugi-collection-test
   username: postgres
   password: postgres
-  
+
+before_install:
+  - sudo apt-get update
+  - sudo apt-get --yes remove postgresql\*
+  - sudo apt-get install -y postgresql-11 postgresql-client-11
+  - sudo cp /etc/postgresql/{9.6,11}/main/pg_hba.conf
+  - sudo service postgresql restart 11
+
+before_script:
+  - psql --version
+  - psql -c 'CREATE DATABASE  yugi-collection-test;' -U postgres
+  - psql -c 'CREATE ROLE travis SUPERUSER LOGIN CREATEDB;' -U postgres
+  - cp config/database.yml.travis config/database.yml
+
 matrix:
   fast_finish: true
   
 install:
   - npm i -g yarn
-  - sudo apt-get install -yq
-  - sudo service postgresql stop
-  - sudo apt install -yq
-  - sudo service postgresql start
   - npm i jest
   - yarn
 
