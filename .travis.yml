@@ -4,18 +4,20 @@ node_js:
   - lts/*
 
 postgres:
+  adapter: postgresql
   database: yugi-collection-test
   username: postgres
   password: postgres
-
-before_script:
-  - "psql -c 'create database yugi-collection-test;' -U postgres"
   
 matrix:
   fast_finish: true
   
 install:
   - npm i -g yarn
+  - sudo apt-get install -yq
+  - sudo service postgresql stop
+  - sudo apt install -yq
+  - sudo service postgresql start
   - npm i jest
   - yarn
 
