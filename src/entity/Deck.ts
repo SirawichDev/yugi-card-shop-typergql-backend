@@ -1,5 +1,4 @@
-import { User } from './User';
-import { ObjectType,Field,ID,Root } from 'type-graphql';
+import { ObjectType,Field,ID } from 'type-graphql';
 import { PrimaryGeneratedColumn, Entity,Column,BaseEntity } from 'typeorm';
 
 @ObjectType()
@@ -10,12 +9,12 @@ export class Deck extends BaseEntity {
     id: number;
 
     @Field()
-    showDeckName(@Root() parent: User): string {
-        return parent.deckName
-    }
+    @Column()
+    name: string;
+
     @Field()
     @Column()
-    level: number;
+    rate: string;
     
     @Column("bool", {default: false})
     isEffect: boolean;
