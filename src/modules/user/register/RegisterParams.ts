@@ -20,5 +20,8 @@ export class RegisterParams {
     email: string;
 
     @Field()
+    deck: string;
+
+    @Field()
     password: string
 }
