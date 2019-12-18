@@ -9,13 +9,12 @@ afterAll(async () => {
     await conn.close()
 })
 const registerMutation = `
-mutation Register($params: RegisterParams!){
-    register(params: $params){
+mutation Register($data: RegisterParams!){
+    register(params: $data){
         id
         firstName
         lastName
         email
-        deckName
     }
 }
 `
@@ -26,12 +25,12 @@ describe('Register', () => {
             await gqlCall({
                 source: registerMutation,
                 variableValues: {
-                    params: {
-                        firstName: "admin",
-                        lastName: "admin",
-                        email: "ioioi@x.com",
+                    data: {
+                        firstName: "adasdminx",
+                        lastName: "admasdinx",
+                        email: "texsdqwxxt@x.com",
                         password: "1w2e3r4t5y",
-                        deck: "Destiny-Hero"
+                        deck: 'test'
                     }
                 }
             }))
