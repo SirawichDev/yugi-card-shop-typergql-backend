@@ -11,7 +11,7 @@ export const connectionTest =  (isDrop: boolean = false) => {
         "database": "yugi-collection-test",
         "dropSchema": isDrop,
         "synchronize": isDrop,
-        "entities": ["/../src/entity/*.*"]
+        "entities": [__dirname + "/../entity/*.*"]
    
     })
 }
