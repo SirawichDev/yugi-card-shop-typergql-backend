@@ -1,6 +1,8 @@
+import { User } from './../../../entity/User';
 import { Connection } from 'typeorm'
 import { connectionTest } from '../../../test/connectionTest'
 import { gqlCall } from '../../../test/gql-call'
+import faker from 'faker';
 let conn: Connection;
 beforeAll(async () => {
     conn = await connectionTest();
@@ -15,24 +17,40 @@ mutation Register($data: RegisterParams!){
         firstName
         lastName
         email
+        deck
     }
 }
 `
 
 describe('Register', () => {
     it('create user', async () => {
-        console.log(
-            await gqlCall({
+        const user = {
+            firstName: faker.name.firstName(),
+                        lastName: faker.name.lastName(),
+                        email: faker.internet.email(),
+                        password: faker.internet.password(),
+        }
+        
+           const res =  await gqlCall({
                 source: registerMutation,
                 variableValues: {
-                    data: {
-                        firstName: "adasdminx",
-                        lastName: "admasdinx",
-                        email: "texsdqwxxt@x.com",
-                        password: "1w2e3r4t5y",
-                        deck: 'test'
-                    }
+                    data: user
                 }
-            }))
+            });
+
+            expect(res).toMatchObject({
+                data: {
+                   register: { firstName: user.firstName,
+                    lastName: user.lastName,
+                    email: user.email,
+                    deck: 'dont have yet'}
+
+                }
+            })
+
+            const dbUser = await User.findOne({where: {email: user.email}})
+            expect(dbUser).toBeDefined()
+            expect(dbUser!.isEmailConfirmed).toBeFalsy()
+            expect(dbUser!.firstName).toBe(user.firstName)
     })
 })
