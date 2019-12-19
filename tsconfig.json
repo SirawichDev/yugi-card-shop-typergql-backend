@@ -18,6 +18,7 @@
     "strictFunctionTypes": true,
     "esModuleInterop": true,
     "noImplicitThis": true,
+    "skipLibCheck": true,
     "noUnusedLocals": true,
     "allowSyntheticDefaultImports": true,
     "noUnusedParameters": true,
@@ -25,5 +26,5 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": ["./src/**/*.tsx", "./src/**/*.ts"],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+  "exclude": ["node_modules"],
 }

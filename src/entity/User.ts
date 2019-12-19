@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from 'typeorm'
-import { ObjectType, Field, ID, Root } from 'type-graphql';
+import { ObjectType, Field, ID } from 'type-graphql';
 @ObjectType()
 @Entity()
 export class User extends BaseEntity {
@@ -17,17 +17,12 @@ export class User extends BaseEntity {
     lastName: string;
 
     @Field()
-    @Column()
-    deckName: string;
-
-    @Field()
     @Column("text", { unique: true })
     email: string;
-
+    
     @Field()
-    showList(@Root() parent: User): string {
-        return `your name is ${parent.firstName} and your deck is ${parent.deckName}`
-    }
+    @Column({default: "dont have yet"})
+    deck: string;
 
     @Column()
     password: string;

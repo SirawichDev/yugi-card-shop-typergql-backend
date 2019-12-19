@@ -1,21 +1,19 @@
 import 'reflect-metadata'
 import { ApolloServer } from 'apollo-server-express'
 import Express from 'express'
-import { buildSchema } from 'type-graphql'
 import { createConnection } from 'typeorm'
 import cors from 'cors'
 import session from 'express-session'
 import connectRedis from 'connect-redis'
 import { redis } from './redis'
+import { buildSchemas } from './utils/buildSchema'
 
 const main = async () => {
     await createConnection()
-    const schema = await buildSchema({
-        resolvers: [__dirname + '/modules/**/*.ts'],
-    })
+    const schema = await buildSchemas();
     const apolloServer = new ApolloServer({
         schema,
-        context: ({ req }: any) => ({ req })
+        context: ({ req,res }: any) => ({ req,res })
     });
 
     const app = Express()

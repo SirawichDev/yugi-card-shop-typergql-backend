@@ -18,7 +18,7 @@ export class RegisterResolver {
 
     @Mutation(() => User)
     async register(
-        @Arg('params') { firstName, lastName, email, deck, password }: RegisterParams,
+        @Arg('params') { firstName, lastName, email, password }: RegisterParams,
     ): Promise<User> { //type return check
         const encryptPassword = await bcrypt.hash(password, 10);
 
@@ -26,8 +26,7 @@ export class RegisterResolver {
             firstName,
             lastName,
             email,
-            deckName: deck,
-            password: encryptPassword
+            password: encryptPassword,
         }).save()
         console.log(user)
         await Mailer(email, await createConfirmationUrl(user.id))

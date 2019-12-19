@@ -3,14 +3,26 @@ language: node_js
 node_js:
   - lts/*
 
+services:
+  - postgresql
+  - redis-server
+
+addons:
+  postgresql: "9.4"
+
+before_script:
+  - psql --version
+  - cp config/database.yml.travis config/database.yml
+  - psql -c 'CREATE DATABASE  yugi-collection-test;' -U postgres
+  
 matrix:
   fast_finish: true
-
+  
 install:
   - npm i -g yarn
   - npm i jest
   - yarn
-
+  
 script:
   - "yarn run test"
 
