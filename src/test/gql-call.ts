@@ -6,15 +6,26 @@ import Maybe from 'graphql/tsutils/Maybe'
 interface Options {
     source: string;
     variableValues?: Maybe<{ [key: string]: any }>
+    userId?:number;
 }
 let schema: GraphQLSchema
-export const gqlCall = async ({ source, variableValues }: Options) => {
+export const gqlCall = async ({ source, variableValues,userId }: Options) => {
     if(!schema){
         schema= await buildSchemas()
     }
     return graphql({
         schema,
         source,
-        variableValues
+        variableValues,
+        contextValue: {
+            req:{
+                session:{
+                    userId
+                }
+            },
+            res:{
+                clearCookie: jest.fn()
+            }
+        }
     })
 }
