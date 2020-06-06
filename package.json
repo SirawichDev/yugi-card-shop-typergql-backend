@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/SirawichDev/yugi-card-shop-typergql-backend#readme",
   "dependencies": {
-    "apollo-server-express": "^2.9.7",
+    "apollo-server-express": "^2.14.2",
     "bcryptjs": "^2.4.3",
     "class-validator": "^0.11.0",
     "connect-redis": "^4.0.3",
