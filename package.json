@@ -42,7 +42,7 @@
     "rimraf": "^3.0.0",
     "type-graphql": "^0.17.5",
     "typedi": "^0.8.0",
-    "typeorm": "^0.2.20",
+    "typeorm": "^0.2.25",
     "uuid": "^3.3.3"
   },
   "jest": {
